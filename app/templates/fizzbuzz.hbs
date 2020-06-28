@@ -1,6 +1,15 @@
-<div class="d-flex justify-content-center flex-column align-items-center justify-content-between my-4">
-<h2>Fizzbuzz</h2>
-<p class="text-center">For multiples of 3 <span class="text-danger">Fizz,</span><br> for multiples of 5 <span class="text-success">Buzz,</span><br>
-for numbers that are multiples of 3 &amp; 5 use <span class="text-info">Fizzbuzz.</span></p>
-<button type="button" class="btn btn-secondary">Reset</button>
+<div class="d-flex flex-column align-items-center my-4">
+  <h2>Fizzbuzz</h2>
+  <p class="text-center">For multiples of 3 <span class="text-danger">Fizz,</span><br> for multiples of 5 <span
+      class="text-success">Buzz,</span><br>
+    for numbers that are multiples of 3 &amp; 5 use <span class="text-info">Fizzbuzz.</span></p>
+  <button type="button" class="btn btn-secondary" {{on "click" this.fizzbuzz}}>Play</button>
 </div>
+
+{{#if this.showNumbers}}
+  <div class="d-flex align-items-center mt-5 h1 p-5">
+    {{#each this.numbers as |number|}}
+      {{number}}
+    {{/each}}
+  </div>
+{{/if}}
