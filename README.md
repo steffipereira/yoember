@@ -1,7 +1,11 @@
 # yoember
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This repo contains mini ember project 
+1. Blog Post with faker
+2. League Table
+3. Painting Game( In progress)
+4. Admin & Category Directory
+5. Fizzbuzz (in progress)
 
 ## Prerequisites
 
