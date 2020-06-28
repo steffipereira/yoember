@@ -1,0 +1,87 @@
+<div class="container">
+  <h1>Admin - Products</h1>
+  <div class="well well-sm">
+    <form class="form-inline pb-3">
+      <div class="form-group mr-3">
+        <label for="new-product">Product Name:</label>
+        <Input type="text" class="form-control mr-2" id="new-product" placeholder="Product name"
+          @value={{newProductName}} />
+        <label for="new-sku">SKU:</label>
+        <Input type="text" class="form-control mr-2" id="new-sku" placeholder="SKU" @value={{newSku}} />
+        <label for="unit-price">Unit Price:</label>
+        <Input type="number" class="form-control mr-2" id="unit-price" placeholder="Price" @value={{newPrice}} />
+      </div>
+      {{!-- <div class="form-group">
+        <label for="category">Category:</label>
+        {{log this.model}}
+        {{debugger}}
+        <XSelect id="category" class="form-control" @value={{yes}} @onChange={{action "selectCategory"}} as
+          |xs|>
+            {{log categories}}
+          {{#each categories as |category|}}
+          {{log categories}}
+          <xs.option @value={{category.name}}>
+            {{category.name}}
+          </xs.option>
+          {{/each}}
+           {{!-- <xs.option @value={{fred}}>Fred Flintstone</xs.option>
+          <xs.option @value={{bob}}>Bob Newhart</xs.option> --}}
+        {{!-- </XSelect>
+      </div> --}}
+      <button type="submit" {{action this.addNewProduct newProductName newSku newPrice}} class="btn btn-xs btn-primary">
+        Add</button>
+    </form>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Product Name</th>
+        <th>SKU</th>
+        <th>Unit Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each @model as |product|}}
+      <tr>
+        <td>{{product.id}} </td>
+        <td {{action this.editProduct product}}>
+          {{#if product.isEdit}}
+            <Input type="text" class="form-control" @value={{product.productName}} />
+              {{else}}
+            {{product.productName}}
+          {{/if}}
+          </td>
+        <td {{action this.editProduct product}}>
+          {{#if product.isEdit}}
+            <Input type="text" class="form-control" @value={{product.sku}} />
+              {{else}}
+            {{product.sku}}
+          {{/if}}
+          </td>
+        <td {{action this.editProduct product}}>
+          {{#if product.isEdit}}
+            <Input type="number" class="form-control" @value={{product.unitPrice}} />
+              {{else}}
+            {{product.unitPrice}}
+          {{/if}}
+          </td>
+        <td>
+          {{#if product.isEdit}}
+            <button class="btn btn-xs btn-primary" {{action this.updateProduct product}}>Save</button>
+            <button class="btn btn-xs btn-primary" {{action this.cancelEdit product }}>Cancel</button>
+          {{else}}
+            <button class="btn btn-xs btn-danger" {{action this.deleteProduct product}}>Del</button>
+            <button class="btn btn-xs btn-success" {{action this.editProduct product}}>Edit</button>
+          {{/if}}
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  Number of Products: {{model.length}}
+
+</div>

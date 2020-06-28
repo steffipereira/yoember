@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{@post.title}}</h5>
+    {{#if @showBody}}
+    <h6 class="card-subtitle mb-2 text-muted">{{@post.formattedCreatedAt}}</h6>
+    <p class="card-text">{{@post.body}}</p>
+    <button class="btn btn-info" {{on "click" (fn this.deletePost @post)}}>Delete Post</button>
+    <ul>
+      {{#each @post.comments as |comment|}}
+      <li>{{comment.text}}<br /> {{comment.createdAt}}</li>
+      {{/each}}
+    </ul>
+    <form>
+        <div class="form-group">
+          <label for="text">Comment</label>
+          <Textarea class="form-control" id="text" aria-describedby="text" @value={{this.newText}} />
+        </div>
+        <button type="submit" class="btn btn-primary" {{on "submit" @addComment @post }}>Submit</button>
+    </form>
+    {{/if}}
+  </div>
+</div>

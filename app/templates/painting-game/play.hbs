@@ -1,0 +1,15 @@
+<div class="d-flex bg-dark flex-col">
+  <div class="p-2 w-50 bg-success">Flex item</div>
+  <div class="p-2 w-50 bg-danger">
+    <ColorPicker @color={{color}} @onChange={{action (mut color)}} />
+  </div>
+</div>
+<div class="d-flex flex-row">
+    <div class="border border-danger p2 w-50">
+      Game is {{pictureGame}}
+      <PictureGrid />
+    </div>
+    <div class="border border-danger p2 w-50">
+      <PictureGrid />
+    </div>
+  </div>

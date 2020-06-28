@@ -1,0 +1,13 @@
+<div class="d-flex m-4">
+  {{#each (array "info" "secondary" "success" "primary" "warning" "light" "dark") as |color|}}
+      <div
+        class="w-10 p-4 {{concat "bg-" color}}"
+        onclick={{action @onChange color}}
+      >
+      {{#if (eq color @color)}}
+        S
+      {{/if}}
+      </div>
+  {{/each}}
+</div>
+<p>the color is {{@color}}</p>

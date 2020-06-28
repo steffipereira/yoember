@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 mt-3">
+      {{#each @model as |post|}}
+      <LinkTo @route="posts.post" @model={{post.id}}>
+        <PostView @post={{post}} @showBody={{false}} />
+      </LinkTo>
+      {{/each}}
+    </div>
+    <div class="col-4 mt-3">
+      <h3>Add A New Blog</h3>
+      <form {{on 'submit' this.addPost}}>
+        <div class="form-group">
+          <label for="title">Blog Title</label>
+          <Input type="text" class="form-control" id="title" aria-describedby="title" @value={{this.newTitle}}/>
+          <label for="body">Blog Body</label>
+          <Textarea class="form-control" id="body" aria-describedby="body" @value={{this.newBody}} />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{{outlet}}

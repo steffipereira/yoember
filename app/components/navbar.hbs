@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+  <LinkTo class="navbar-brand text-white" @route="index">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Android_O_Preview_Logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    YoEmber
+  </LinkTo>
+  <button class="navbar-toggler border" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <LinkTo class="nav-item nav-link active" @route="index">Home <span class="sr-only">(current)</span></LinkTo>
+      <LinkTo class="nav-item nav-link" @route="about">About Us</LinkTo>
+      <LinkTo class="nav-item nav-link" @route="posts">Blog Post</LinkTo>
+      <LinkTo class="nav-item nav-link" @route="painting-game">Painting Game</LinkTo>
+      <LinkTo class="nav-item nav-link" @route="fizzbuzz">FizzBuzz</LinkTo>
+      <LinkTo class="nav-item nav-link" @route="admin.categories">Admin</LinkTo>
+      <LinkTo class="nav-item nav-link" @route="contact">Contact Us</LinkTo>
+    </div>
+  </div>
+</nav>

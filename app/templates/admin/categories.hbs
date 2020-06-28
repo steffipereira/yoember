@@ -1,0 +1,44 @@
+<div class="container">
+<h1>Admin - Categories</h1>
+<div class="well well-sm">
+  <form class="form-inline pb-3">
+    <div class="form-group mr-3">
+      <label for="new-category">New category: </label>
+      <Input type="text" class="form-control" id="new-category" placeholder="Category name"
+        @value={{newCategoryName}} />
+    </div>
+    <button type="submit" {{action this.addNewCategory newCategoryName}} class="btn btn-xs btn-primary">Add</button>
+  </form>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name-(Product Length)</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |category|}}
+    <tr>
+      <td>{{category.id}}</td>
+      <td {{action this.editCategory category}}>
+      {{#if category.isEditing}}
+        <Input type="text" class="form-control" @value={{category.name}} />
+        <button class="btn btn-xs btn-primary" {{action this.updateCategory category}}>Save</button>
+      {{else}}
+        <td>{{category.name}}</td>
+        <td>{{category.products.length}}</td>
+      {{/if}}
+      </td>
+      <td>
+        <button class="btn btn-xs btn-danger" {{action this.deleteCategory category}}>Del</button>
+        <button class="btn btn-xs btn-success" {{action this.editCategory category}}>Edit</button>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+Number of categories: {{model.length}}
+</div>
