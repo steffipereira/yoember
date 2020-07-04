@@ -3,3 +3,8 @@ content: '';
 display: block;
 margin-top: 100%;
 }
+
+em {
+  margin-top: 15px;
+  font-size: 15px;
+}
