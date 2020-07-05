@@ -3,7 +3,8 @@
     <div class="col-8 mt-3">
       {{#each @model as |post|}}
       <LinkTo @route="posts.post" @model={{post.id}}>
-        <PostView @post={{post}} @showBody={{false}} />
+        {{!-- <PostView @post={{post}} @showBody={{false}} /> --}}
+       <p>{{post.title}}</p>
       </LinkTo>
       {{/each}}
     </div>

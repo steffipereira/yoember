@@ -10,12 +10,12 @@
       <li>{{comment.text}}<br /> {{comment.createdAt}}</li>
       {{/each}}
     </ul>
-    <form>
+    <form {{on "submit" this.addComment}}>
         <div class="form-group">
           <label for="text">Comment</label>
           <Textarea class="form-control" id="text" aria-describedby="text" @value={{this.newText}} />
         </div>
-        <button type="submit" class="btn btn-primary" {{on "submit" @addComment @post }}>Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     {{/if}}
   </div>

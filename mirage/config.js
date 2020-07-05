@@ -24,6 +24,7 @@ export default function() {
     https://www.ember-cli-mirage.com/docs/route-handlers/shorthands
   */
  this.resource('posts');
+ this.post('/comments');
  this.resource('teams');
  this.resource('games');
  this.resource('categories');

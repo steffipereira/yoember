@@ -5,8 +5,8 @@ export default class PostsPostsRoute extends Route {
     return this.store.findRecord('post', post_id, { include: 'comments'});
   }
   // afterModel(model) {
-  //   // const comment = this.store.createRecord('comment');
-  //   // model.comments.pushObject(comment);
-  //   // return model;
+  //   const comment = this.store.createRecord('comment');
+  //   model.comments.pushObject(comment);
+  //   return model;
   // }
 }

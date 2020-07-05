@@ -1,1 +1,24 @@
-<PostView @post={{@model}} @showBody={{true}} />
+{{!-- <PostView @post={{@model}} @showBody={{true}} /> --}}
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{@model.title}}</h5>
+
+    <h6 class="card-subtitle mb-2 text-muted">{{@model.formattedCreatedAt}}</h6>
+    <p class="card-text">{{@model.body}}</p>
+    <button class="btn btn-info" {{on "click" (fn this.deletePost @model)}}>Delete Post</button>
+    <ul>
+      {{#each @model.comments as |comment|}}
+      <li>{{comment.text}}<br /> {{comment.createdAt}}</li>
+      {{/each}}
+    </ul>
+    <form {{on "submit" this.addComment}}>
+        <div class="form-group">
+          <label for="text">Comment</label>
+          <Textarea class="form-control" id="text" aria-describedby="text" @value={{this.newText}} />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+  </div>
+</div>

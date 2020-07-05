@@ -1,17 +1,24 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-
 export default class PostsPostController extends Controller {
   @tracked newText;
 
   @action
-   addComment() {
+  async deletePost(post) {
+    await post.destroyRecord();
+    this.transitionToRoute('/posts');
+  }
+
+  @action
+   addComment(e) {
+     e.preventDefault();
     const comment = this.store.createRecord('comment', {
-      body: this.newText,
+      text: this.newText,
       createdAt: new Date(),
       post: this.model,
     });
+    this.newText = '';
     comment.save()
   }
 }
